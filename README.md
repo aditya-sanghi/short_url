@@ -19,9 +19,12 @@ rake db:migrate
 * Database initialization
 
 * How to run the test suite
+rspec spec
 
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
+git push heroku master
 
-* ...
+* Application address
+https://shorturltest.herokuapp.com/
