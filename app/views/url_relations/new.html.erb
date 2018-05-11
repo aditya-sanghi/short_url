@@ -1,0 +1,7 @@
+<%= form_for @url_relation do |f| %>
+  <div class="url-input">
+    <%= f.label :full_version, 'Url' %>
+    <%= f.text_field :full_version %>
+  </div>
+  <%= f.submit 'Generate short url' %>
+<% end %>
