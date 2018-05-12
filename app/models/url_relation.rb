@@ -1,6 +1,6 @@
 class UrlRelation < ApplicationRecord
-  validates :short_version, presence: true
-  validates :full_version, url: { no_local: true }
+  validates :short_version, presence: true, uniqueness: true, url: true
+  validates :full_version, url: { no_local: true }, uniqueness: true
 
   before_validation :get_short_version, on: :create
   before_create :add_trailing_slash
