@@ -1,6 +1,6 @@
 class UrlRelation < ApplicationRecord
   validates :short_version, presence: true
-  validates :full_version, presence: true
+  validates :full_version, url: { no_local: true }
 
   before_validation :generate_short_version
 

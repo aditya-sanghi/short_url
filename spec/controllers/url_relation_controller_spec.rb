@@ -13,13 +13,13 @@ describe UrlRelationsController do
 
   context '#create' do
     it 'returns success' do
-      post :create, params: { url_relation: { full_version: 'aaaa' } }
+      post :create, params: { url_relation: { full_version: 'http://aaaa.com' } }
       expect(response).to have_http_status(:redirect)
     end
 
     it 'creates url_relation' do
       expect do
-        post :create, params: { url_relation: { full_version: 'aaaa' } }
+        post :create, params: { url_relation: { full_version: 'http://aaaa.com' } }
       end.to change { UrlRelation.count }.by(1)
     end
   end
