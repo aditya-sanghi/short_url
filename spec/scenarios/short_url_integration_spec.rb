@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-feature 'Short URL integration tests' do
+RSpec.feature 'Short URL integration tests', type: :feature do
   scenario 'create short link' do
     visit root_path
     expect(page).to_not have_content 'Result URL:'
@@ -22,5 +22,16 @@ feature 'Short URL integration tests' do
 
     visit result_url
     expect(page.current_url).to eq('https://facebook.com/')
+  end
+
+  scenario 'use short link for incorrect path' do
+    visit root_path
+
+    fill_in 'Url', with: 'http://aaa12313aaa.com'
+    click_button 'Generate short url'
+    result_url = find(:css, '.result-url .result-value').text
+
+    visit URI(result_url).path
+    expect(page.current_url).to eq(result_url)
   end
 end
