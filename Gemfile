@@ -34,6 +34,7 @@ gem 'rack-streaming-proxy'
 gem 'browser'
 gem 'activeadmin'
 gem 'devise'
+gem 'simplecov', require: false, group: :test
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -46,6 +47,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'pry-rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do
