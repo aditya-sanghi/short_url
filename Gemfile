@@ -32,6 +32,8 @@ gem 'jbuilder', '~> 2.5'
 gem "validate_url"
 gem 'rack-streaming-proxy'
 gem 'browser'
+gem 'activeadmin'
+gem 'devise'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -17,6 +17,8 @@ rake db:create
 rake db:migrate
 
 * Database initialization
+To create admin_user and be able to view all created models
+rake db:seed
 
 * How to run the test suite
 rspec spec
