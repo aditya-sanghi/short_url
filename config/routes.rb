@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  root 'url_relations#new'
+  root 'url_relations#index'
 
-  resources :url_relations, only: %i[new create]
+  resources :url_relations, only: %i[index create]
 end

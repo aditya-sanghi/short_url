@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UrlRelationsController < ApplicationController
-  def new
+  def index
     @url_relation = UrlRelation.find_or_initialize_by(full_version: params[:full_url])
   end
 
@@ -10,9 +10,9 @@ class UrlRelationsController < ApplicationController
     @url_relation.domain_url = root_url
 
     if @url_relation.save
-      redirect_to new_url_relation_path(full_url: @url_relation.full_version)
+      redirect_to root_path(full_url: @url_relation.full_version)
     else
-      render :new
+      render :index
     end
   end
 
