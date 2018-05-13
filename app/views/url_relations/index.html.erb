@@ -6,9 +6,9 @@
   <%= f.submit 'Generate short url' %>
 <% end %>
 
-<% if @url_relation.short_version %>
+<% if @url_relation.persisted? %>
   <div class="result-url">
     <span class="result-label">Result URL: </span>
-    <span class="result-value"><%= @url_relation.short_version %></span>
+    <span class="result-value"><%= url_url(@url_relation.shortened_url_code) %></span>
   </div>
 <% end %>

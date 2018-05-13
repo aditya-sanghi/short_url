@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -49,12 +47,10 @@ ActiveRecord::Schema.define(version: 20180513101955) do
   end
 
   create_table "url_relations", force: :cascade do |t|
-    t.string "short_version", null: false
     t.string "full_version", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["full_version"], name: "index_url_relations_on_full_version"
-    t.index ["short_version"], name: "index_url_relations_on_short_version"
   end
 
   create_table "user_requests", force: :cascade do |t|

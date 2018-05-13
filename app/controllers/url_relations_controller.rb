@@ -7,7 +7,6 @@ class UrlRelationsController < ApplicationController
 
   def create
     @url_relation = UrlRelation.find_or_initialize_by(url_relation_params)
-    @url_relation.domain_url = root_url
 
     if @url_relation.save
       redirect_to root_path(full_url: @url_relation.full_version)

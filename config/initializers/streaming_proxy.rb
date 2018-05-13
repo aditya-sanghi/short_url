@@ -11,9 +11,10 @@ Rails.application.configure do
   config.middleware.use Rack::StreamingProxy::Proxy do |request|
     # Inside the request block, return the full URI to redirect the request to,
     # or nil/false if the request should continue on down the middleware stack.
-    if request.path.match?("\/urls\/(.+)")
+    if (url_code = request.path.match("\/urls\/(.+)").try(:[], 1))
       begin
-        url_relation = UrlRelation.find_by!(short_version: request.url)
+        url_id = Utils::UrlUtils.decode(url_code)
+        url_relation = UrlRelation.find(url_id)
         url_relation.add_request_info!(request)
         Utils::RequestUtils.ping_site(url_relation.full_version)
 

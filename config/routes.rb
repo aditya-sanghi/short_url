@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   root 'url_relations#index'
 
+  resources :urls, only: :show
   resources :url_relations, only: %i[index create]
 end
