@@ -1,25 +1,22 @@
 # frozen_string_literal: true
 
 ActiveAdmin.register UrlRelation do
-  permit_params :short_version, :full_version
+  permit_params :input_url
 
   index do
     selectable_column
     id_column
-    column :short_version
-    column :full_version
+    column :input_url
     column :created_at
     actions
   end
 
-  filter :short_version
-  filter :full_version
+  filter :input_url
   filter :created_at
 
   form do |f|
     f.inputs do
-      f.input :short_version
-      f.input :full_version
+      f.input :input_url
     end
     f.actions
   end

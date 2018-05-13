@@ -1,7 +1,17 @@
+<% if @url_relation.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+      <% @url_relation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for @url_relation, url: url_relations_path, method: :post do |f| %>
   <div class="url-input">
-    <%= f.label :full_version, 'Url' %>
-    <%= f.text_field :full_version %>
+    <%= f.label :input_url, 'Url' %>
+    <%= f.text_field :input_url %>
   </div>
   <%= f.submit 'Generate short url' %>
 <% end %>

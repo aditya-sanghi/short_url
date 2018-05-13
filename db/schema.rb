@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180513101955) do
+ActiveRecord::Schema.define(version: 20180513205114) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,10 +47,10 @@ ActiveRecord::Schema.define(version: 20180513101955) do
   end
 
   create_table "url_relations", force: :cascade do |t|
-    t.string "full_version", null: false
+    t.string "input_url", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["full_version"], name: "index_url_relations_on_full_version"
+    t.index ["input_url"], name: "index_url_relations_on_input_url"
   end
 
   create_table "user_requests", force: :cascade do |t|

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UrlRelation < ApplicationRecord
-  validates :full_version, url: { no_local: true }, uniqueness: true
+  validates :input_url, url: { no_local: true }, uniqueness: true
 
   before_validation :add_trailing_slash, on: :create
 
@@ -23,8 +23,8 @@ class UrlRelation < ApplicationRecord
   end
 
   def add_trailing_slash
-    return unless full_version
+    return unless input_url
 
-    self.full_version = Utils::UrlUtils.with_trailing_slash(full_version)
+    self.input_url = Utils::UrlUtils.with_trailing_slash(input_url)
   end
 end

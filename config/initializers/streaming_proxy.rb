@@ -16,9 +16,9 @@ Rails.application.configure do
         url_id = Utils::UrlUtils.decode(url_code)
         url_relation = UrlRelation.find(url_id)
         url_relation.add_request_info!(request)
-        Utils::RequestUtils.ping_site(url_relation.full_version)
+        Utils::RequestUtils.ping_site(url_relation.input_url)
 
-        url_relation.full_version
+        url_relation.input_url
       rescue StandardError => ex
         Rails.logger.error ex.message
         # Render 404 if site can not be reached

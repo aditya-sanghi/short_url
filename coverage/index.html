@@ -14,7 +14,7 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2018-05-13T23:40:44+03:00">2018-05-13T23:40:44+03:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2018-05-13T23:54:38+03:00">2018-05-13T23:54:38+03:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,7 +25,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.6
+         2.49
        </span>
     </span> hits/line)
   </h2>
@@ -77,7 +77,7 @@
         <td>24</td>
         <td>24</td>
         <td>0</td>
-        <td>5.3</td>
+        <td>4.9</td>
       </tr>
       
       <tr>
@@ -167,7 +167,7 @@
         <li class="covered" data-hits="8" data-linenumber="5">
           <span class="hits">8</span>
           
-          <code class="ruby">    @url_relation = UrlRelation.find_or_initialize_by(full_version: params[:full_url])</code>
+          <code class="ruby">    @url_relation = UrlRelation.find_or_initialize_by(input_url: params[:full_url])</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="6">
@@ -209,7 +209,7 @@
         <li class="covered" data-hits="5" data-linenumber="12">
           <span class="hits">5</span>
           
-          <code class="ruby">      redirect_to root_path(full_url: @url_relation.full_version)</code>
+          <code class="ruby">      redirect_to root_path(full_url: @url_relation.input_url)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="13">
@@ -263,13 +263,13 @@
         <li class="covered" data-hits="7" data-linenumber="21">
           <span class="hits">7</span>
           
-          <code class="ruby">    ulr_params = params.require(:url_relation).permit(:full_version)</code>
+          <code class="ruby">    ulr_params = params.require(:url_relation).permit(:input_url)</code>
         </li>
       
         <li class="covered" data-hits="7" data-linenumber="22">
           <span class="hits">7</span>
           
-          <code class="ruby">    { full_version: Utils::UrlUtils.with_trailing_slash(ulr_params[:full_version]) }</code>
+          <code class="ruby">    { input_url: Utils::UrlUtils.with_trailing_slash(ulr_params[:input_url]) }</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="23">
@@ -478,14 +478,14 @@
           <code class="ruby">      while id_number.positive?</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="11">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="3" data-linenumber="11">
+          <span class="hits">3</span>
           
           <code class="ruby">        short_url_array &lt;&lt; CHARACTERS[id_number % BASE]</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="12">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="3" data-linenumber="12">
+          <span class="hits">3</span>
           
           <code class="ruby">        id_number /= BASE</code>
         </li>
@@ -544,14 +544,14 @@
           <code class="ruby">      short_url_code.split(&#39;&#39;).each do |char|</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="22">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="2" data-linenumber="22">
+          <span class="hits">2</span>
           
           <code class="ruby">        id_number += CHARACTERS.index(char) * pow</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="23">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="2" data-linenumber="23">
+          <span class="hits">2</span>
           
           <code class="ruby">        pow *= BASE</code>
         </li>
@@ -789,7 +789,7 @@
         <li class="covered" data-hits="1" data-linenumber="8">
           <span class="hits">1</span>
           
-          <code class="ruby">      UrlRelation.create!(full_version: &#39;http://aaaa.com&#39;)</code>
+          <code class="ruby">      UrlRelation.create!(input_url: &#39;http://aaaa.com&#39;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="9">
@@ -813,7 +813,7 @@
         <li class="covered" data-hits="1" data-linenumber="12">
           <span class="hits">1</span>
           
-          <code class="ruby">  it &#39;automatically generates short version&#39; do</code>
+          <code class="ruby">  it &#39;automatically generates url&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="13">
@@ -825,7 +825,7 @@
         <li class="covered" data-hits="1" data-linenumber="14">
           <span class="hits">1</span>
           
-          <code class="ruby">      UrlRelation.create!(full_version: &#39;http://aaaa.com&#39;)</code>
+          <code class="ruby">      UrlRelation.create!(input_url: &#39;http://aaaa.com&#39;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="15">
@@ -849,13 +849,13 @@
         <li class="covered" data-hits="1" data-linenumber="18">
           <span class="hits">1</span>
           
-          <code class="ruby">  it &#39;raise error if full_version is not unique&#39; do</code>
+          <code class="ruby">  it &#39;raise error if input_url is not unique&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="19">
           <span class="hits">1</span>
           
-          <code class="ruby">    UrlRelation.create!(full_version: &#39;http://aaaa.com/&#39;)</code>
+          <code class="ruby">    UrlRelation.create!(input_url: &#39;http://aaaa.com/&#39;)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="20">
@@ -867,7 +867,7 @@
         <li class="covered" data-hits="1" data-linenumber="21">
           <span class="hits">1</span>
           
-          <code class="ruby">      UrlRelation.create!(full_version: &#39;http://aaaa.com/&#39;)</code>
+          <code class="ruby">      UrlRelation.create!(input_url: &#39;http://aaaa.com/&#39;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="22">
@@ -891,7 +891,7 @@
         <li class="covered" data-hits="1" data-linenumber="25">
           <span class="hits">1</span>
           
-          <code class="ruby">  it &#39;raise validation error in case of empty full version field&#39; do</code>
+          <code class="ruby">  it &#39;raise validation error in case of empty input_url field&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="26">
@@ -903,7 +903,7 @@
         <li class="covered" data-hits="1" data-linenumber="27">
           <span class="hits">1</span>
           
-          <code class="ruby">      UrlRelation.create!(full_version: nil)</code>
+          <code class="ruby">      UrlRelation.create!(input_url: nil)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="28">
@@ -927,7 +927,7 @@
         <li class="covered" data-hits="1" data-linenumber="31">
           <span class="hits">1</span>
           
-          <code class="ruby">  it &#39;raise validation error in case of not valid url in version field&#39; do</code>
+          <code class="ruby">  it &#39;raise validation error in case of not valid url in input_url field&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="32">
@@ -939,7 +939,7 @@
         <li class="covered" data-hits="1" data-linenumber="33">
           <span class="hits">1</span>
           
-          <code class="ruby">      UrlRelation.create!(full_version: &#39;aaa&#39;)</code>
+          <code class="ruby">      UrlRelation.create!(input_url: &#39;aaa&#39;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="34">

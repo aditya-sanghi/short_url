@@ -12,24 +12,24 @@ describe UrlRelationsController do
 
   context '#create' do
     it 'returns success' do
-      post :create, params: { url_relation: { full_version: 'http://aaaa.com' } }
+      post :create, params: { url_relation: { input_url: 'http://aaaa.com' } }
       expect(response).to have_http_status(:redirect)
     end
 
     it 'creates url_relation' do
       expect do
-        post :create, params: { url_relation: { full_version: 'http://aaaa.com' } }
+        post :create, params: { url_relation: { input_url: 'http://aaaa.com' } }
       end.to change { UrlRelation.count }.by(1)
     end
 
     it 'not redirects in case of empty params' do
-      post :create, params: { url_relation: { full_version: '' } }
+      post :create, params: { url_relation: { input_url: '' } }
       expect(response).to have_http_status(:success)
     end
 
     it 'renders new in case of empty params' do
       expect(
-        post(:create, params: { url_relation: { full_version: '' } })
+        post(:create, params: { url_relation: { input_url: '' } })
       ).to render_template('url_relations/index')
     end
   end
