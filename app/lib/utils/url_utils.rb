@@ -24,5 +24,18 @@ module Utils
       end
       id_number
     end
+
+    def self.need_trailing_slash?(url)
+      full_uri = URI(url)
+      unparametrized_url = full_uri.scheme.to_s + '://' + full_uri.host.to_s + full_uri.path.to_s
+
+      unparametrized_url == url && url[-1] != '/'
+    end
+
+    def self.with_trailing_slash(url)
+      return url unless need_trailing_slash?(url)
+
+      url + '/'
+    end
   end
 end

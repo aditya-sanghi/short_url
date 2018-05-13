@@ -18,6 +18,7 @@ class UrlRelationsController < ApplicationController
   private
 
   def url_relation_params
-    params.require(:url_relation).permit(:full_version)
+    ulr_params = params.require(:url_relation).permit(:full_version)
+    { full_version: Utils::UrlUtils.with_trailing_slash(ulr_params[:full_version]) }
   end
 end
