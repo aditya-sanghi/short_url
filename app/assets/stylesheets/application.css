@@ -13,3 +13,28 @@
  *= require_tree .
  *= require_self
  */
+
+.form-wrapper {
+  display: block;
+  text-align: center;
+
+}
+
+.form-wrapper form {
+  display: inline-block;
+  width: 70%;
+  padding: 20px 0;
+}
+
+.result-label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.field_with_errors {
+  display: inline;
+}
+
+div.field_with_errors input {
+  border: 1px solid #EE0000;
+}
