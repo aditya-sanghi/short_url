@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UrlRelationsController < ApplicationController
   def new
     @url_relation = UrlRelation.find_or_initialize_by(full_version: params[:full_url])

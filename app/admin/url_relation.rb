@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ActiveAdmin.register UrlRelation do
   permit_params :short_version, :full_version
 
@@ -21,5 +23,4 @@ ActiveAdmin.register UrlRelation do
     end
     f.actions
   end
-
 end

@@ -1,5 +1,13 @@
+# frozen_string_literal: true
+
 ActiveAdmin.register UserRequest do
-  permit_params :ip, :platform_name, :platform_version, :browser_name, :browser_version, :url_relation, :url_relation_id
+  permit_params :ip,
+                :platform_name,
+                :platform_version,
+                :browser_name,
+                :browser_version,
+                :url_relation,
+                :url_relation_id
 
   index do
     selectable_column
@@ -31,5 +39,4 @@ ActiveAdmin.register UserRequest do
     end
     f.actions
   end
-
 end

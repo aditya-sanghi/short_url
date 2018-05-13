@@ -3,7 +3,6 @@
 require 'rails_helper'
 
 describe UrlRelationsController do
-
   context '#new' do
     it 'renders successfully' do
       get :new
@@ -30,9 +29,8 @@ describe UrlRelationsController do
 
     it 'renders new in case of empty params' do
       expect(
-        post :create, params: { url_relation: { full_version: '' } }
+        post(:create, params: { url_relation: { full_version: '' } })
       ).to render_template('url_relations/new')
     end
   end
-
 end

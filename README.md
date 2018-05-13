@@ -30,3 +30,9 @@ git push heroku master
 
 * Application address
 https://shorturltest.herokuapp.com/
+
+* See current tests coverage
+open coverage/index.html
+
+* Style checking
+rubocop

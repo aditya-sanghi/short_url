@@ -1,0 +1,19 @@
+AllCops:
+  Exclude:
+    - 'config/initializers/active_admin.rb'
+    - 'db/schema.rb'
+    - 'db/migrate/*'
+    - 'config/puma.rb'
+    - 'config/initializers/devise.rb'
+    - 'bin/*'
+    - 'config/environments/*'
+    - 'config/spring.rb'
+    - 'config/initializers/backtrace_silencers.rb'
+    - 'config/initializers/wrap_parameters.rb'
+    - 'spec/spec_helper.rb'
+Metrics/BlockLength:
+  Max: 150
+Metrics/LineLength:
+  Max: 100
+Style/Documentation:
+  Enabled: No

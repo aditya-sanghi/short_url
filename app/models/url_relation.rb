@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 class UrlRelation < ApplicationRecord
   validates :short_version, presence: true, uniqueness: true, url: true
   validates :full_version, url: { no_local: true }, uniqueness: true
 
-  before_validation :get_short_version, on: :create
+  before_validation :assign_short_version, on: :create
   before_create :add_trailing_slash
 
   has_many :user_requests
@@ -24,13 +26,14 @@ class UrlRelation < ApplicationRecord
 
   def add_trailing_slash
     full_uri = URI(full_version)
+    uri_wihtout_parameters = full_uri.scheme + '://' + full_uri.host + full_uri.path
 
-    if full_uri.scheme + '://' + full_uri.host + full_uri.path == full_version && full_version[-1] != '/'
-      self.full_version += '/'
-    end
+    return unless uri_wihtout_parameters == full_version && full_version[-1] != '/'
+
+    self.full_version += '/'
   end
 
-  def get_short_version
+  def assign_short_version
     return if full_version.blank? || domain_url.blank?
 
     self.short_version ||= generate_short_url
@@ -43,5 +46,4 @@ class UrlRelation < ApplicationRecord
   def generate_short_version_hash
     Digest::MD5.hexdigest(full_version)
   end
-
 end
