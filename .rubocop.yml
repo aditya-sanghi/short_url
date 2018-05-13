@@ -17,3 +17,5 @@ Metrics/LineLength:
   Max: 100
 Style/Documentation:
   Enabled: No
+Style/ExpandPathArguments:
+  Enabled: No
