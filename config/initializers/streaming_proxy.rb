@@ -15,10 +15,13 @@ Rails.application.configure do
       begin
         url_relation = UrlRelation.find_by!(short_version: request.url)
         url_relation.add_request_info!(request)
+        Utils::RequestUtils.ping_site(url_relation.full_version)
 
         url_relation.full_version
       rescue StandardError => ex
         Rails.logger.error ex.message
+        # Render 404 if site can not be reached
+        Utils::RequestUtils.request_domain(request) + '/404'
       end
     end
   end
