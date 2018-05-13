@@ -9,6 +9,17 @@ class UrlRelation < ApplicationRecord
 
   attr_accessor :domain_url
 
+  def add_request_info!(request)
+    return if request.blank?
+
+    browser = Browser.new(request.user_agent)
+    user_requests.create!(platform_name: browser.platform.name,
+                          platform_version: browser.platform.version,
+                          browser_name: browser.name,
+                          browser_version: browser.version,
+                          ip: request.ip)
+  end
+
   private
 
   def add_trailing_slash

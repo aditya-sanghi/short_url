@@ -12,12 +12,7 @@ Rails.application.configure do
     if request.path.match(/\/urls\/(.+)/)
       begin
         url_relation = UrlRelation.find_by!(short_version: request.url)
-        browser = Browser.new(request.user_agent)
-        url_relation.user_requests.create!(platform_name: browser.platform.name,
-                                           platform_version: browser.platform.version,
-                                           browser_name: browser.name,
-                                           browser_version: browser.version,
-                                           ip: request.ip)
+        url_relation.add_request_info!(request)
 
         url_relation.full_version
       rescue => ex
