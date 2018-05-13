@@ -10,8 +10,15 @@ Rails.application.configure do
     # Inside the request block, return the full URI to redirect the request to,
     # or nil/false if the request should continue on down the middleware stack.
     if request.path.match(/\/urls\/(.+)/)
-      url_relation = UrlRelation.find_by!(short_version: request.url)
       begin
+        url_relation = UrlRelation.find_by!(short_version: request.url)
+        browser = Browser.new(request.user_agent)
+        url_relation.user_requests.create!(platform_name: browser.platform.name,
+                                           platform_version: browser.platform.version,
+                                           browser_name: browser.name,
+                                           browser_version: browser.version,
+                                           ip: request.ip)
+
         url_relation.full_version
       rescue => ex
         Rails.logger.error ex.message

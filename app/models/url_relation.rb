@@ -5,6 +5,8 @@ class UrlRelation < ApplicationRecord
   before_validation :get_short_version, on: :create
   before_create :add_trailing_slash
 
+  has_many :user_requests
+
   attr_accessor :domain_url
 
   private
