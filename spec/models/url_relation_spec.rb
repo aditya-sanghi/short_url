@@ -26,8 +26,8 @@ describe UrlRelation do
   end
 
   it 'raise error if full_version is not unique' do
-    UrlRelation.create!(short_version: 'http://bbb.com/aaaa', full_version: 'http://aaaa.com')
-    expect { UrlRelation.create!(short_version: 'http://aaa.com/aaaa', full_version: 'http://aaaa.com') }.to raise_error(ActiveRecord::RecordInvalid)
+    UrlRelation.create!(short_version: 'http://bbb.com/aaaa', full_version: 'http://aaaa.com/')
+    expect { UrlRelation.create!(short_version: 'http://aaa.com/aaaa', full_version: 'http://aaaa.com/') }.to raise_error(ActiveRecord::RecordInvalid)
   end
 
   it 'raise validation error in case of empty full version field' do

@@ -24,7 +24,8 @@ class UrlRelation < ApplicationRecord
 
   def add_trailing_slash
     full_uri = URI(full_version)
-    if full_uri.host + full_uri.path == full_version && full_version[-1] != '/'
+
+    if full_uri.scheme + '://' + full_uri.host + full_uri.path == full_version && full_version[-1] != '/'
       self.full_version += '/'
     end
   end
