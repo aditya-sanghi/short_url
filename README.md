@@ -1,6 +1,7 @@
 # README
 
 * Ruby version
+
 2.4.3
 
 * System dependencies
@@ -8,14 +9,18 @@
 * Configuration
 
 * Database creation
+
 rake db:create
+
 rake db:migrate
 
 * Database initialization
 To create admin_user and be able to view all created models
+
 rake db:seed
 
 * How to run the test suite
+
 rspec spec
 
 * Services (job queues, cache servers, search engines, etc.)
@@ -24,13 +29,19 @@ rspec spec
 git push heroku master
 
 * Application address
+
 https://shorturltest.herokuapp.com/
 
 * See current tests coverage
+
 open coverage/index.html
 
 * Style checking
+
 rubocop
+
+* Development description
+
 
 I decided to start with developing a web app architecture,
 so I started with straight forward solution for the main algorithm and
